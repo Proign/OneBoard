@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OneBoard - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="/static/css/dashboard.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>OneBoard</h1>
+        <span class="header-divider">|</span>
+        <span class="header-text">Мои курсы</span>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-container">
+        <!-- Courses section -->
+        <div class="courses-section">
+            <div class="courses-header">
+                <button class="add-course-button" onclick="openCreateCourseModal()">
+                    + Создать курс
+                </button>
+            </div>
+            <!-- Курсы будут добавляться сюда динамически -->
+        </div>
+
+        <!-- Chat section -->
+        <div class="chat-section">
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be added here -->
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" placeholder="Введите сообщение...">
+                    <button class="chat-send-button">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно создания курса -->
+    <div id="createCourseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Создание нового курса</h2>
+            </div>
+            <form id="createCourseForm">
+                <div class="form-group">
+                    <label for="courseTitle">Название курса</label>
+                    <input type="text" id="courseTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="courseDescription">Описание курса</label>
+                    <textarea id="courseDescription" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="courseImage">Изображение курса</label>
+                    <input type="file" id="courseImage" name="image" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="courseStatus">Статус</label>
+                    <select id="courseStatus" name="status" required>
+                        <option value="draft">Черновик</option>
+                        <option value="published">Опубликован</option>
+                    </select>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="modal-button cancel" onclick="closeCreateCourseModal()">Отмена</button>
+                    <button type="submit" class="modal-button save">Создать курс</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

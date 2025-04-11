@@ -1,0 +1,260 @@
+/* Course elements styles */
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.edit-button, .delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.edit-button img, .delete-button img {
+    width: 25px;
+    height: 25px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.edit-button:hover img, .delete-button:hover img {
+    opacity: 1;
+}
+
+.add-item-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.add-item-button:hover {
+    background-color: #333;
+}
+
+.text-content {
+    padding: 20px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #333;
+}
+
+.delete-button:hover img {
+    opacity: 1;
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.question-container {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    position: relative;
+}
+
+.question-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.question-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.question-number {
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.question-container input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.answersContainer {
+    margin-top: 5px;
+}
+
+.add-answer-button {
+    padding: 6px 12px;
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.add-answer-button:hover {
+    background-color: #28a428;
+}
+
+.add-answer-button::before {
+    content: '+';
+    margin-right: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.answer-container {
+    position: relative;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 10px;
+    margin: 0 0 15px 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.answer-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.answer-number {
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+.answer-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.answer-container input[type="text"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.correct-answer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #555;
+    line-height: 1;
+    font-size: 14px;
+}
+
+.correct-answer input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.correct-answer label {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.delete-answer-button {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.delete-answer-button:hover {
+    color: #e60000;
+    background-color: rgba(255, 77, 77, 0.1);
+}
+
+.delete-question-button,
+.delete-answer-button {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.delete-question-button:hover,
+.delete-answer-button:hover {
+    color: #e60000;
+    background-color: rgba(255, 77, 77, 0.1);
+}
+
+.start-test-btn {
+    padding: 10px 20px;
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    margin-top: 20px;
+}
+
+.start-test-btn:hover {
+    background-color: #28a428;
+}

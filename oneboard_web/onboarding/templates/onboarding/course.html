@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OneBoard - Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="/static/css/course/base.css" rel="stylesheet">
+    <link href="/static/css/course/header.css" rel="stylesheet">
+    <link href="/static/css/course/layout.css" rel="stylesheet">
+    <link href="/static/css/course/elements.css" rel="stylesheet">
+    <link href="/static/css/course/modals.css" rel="stylesheet">
+    <link href="/static/css/course/chat.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>OneBoard</h1>
+        <span class="header-divider">|</span>
+        <span class="header-text" id="courseName">Загрузка...</span>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-container">
+        <!-- Course sidebar -->
+        <div class="course-sidebar">
+            <button class="add-item-button" onclick="openAddElementModal()" id="addElementButton" style="display: none;">
+                + Добавить элемент
+            </button>
+            <div id="courseContent">
+                <!-- Элементы курса будут добавлены здесь -->
+            </div>
+        </div>
+
+        <!-- Content section -->
+        <div class="content-section">
+            <div class="content-container" id="mainContent">
+                <!-- Содержимое элемента будет отображаться здесь -->
+            </div>
+        </div>
+
+        <!-- Chat section -->
+        <div class="chat-section">
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be added here -->
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" placeholder="Введите сообщение...">
+                    <button class="chat-send-button">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add a section for test results -->
+    <div id="testResults" class="test-results">
+        <!-- Test results will be displayed here -->
+    </div>
+
+    <!-- Модальное окно для добавления элемента -->
+    <div id="addElementModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Добавить элемент курса</h2>
+                <button onclick="closeAddElementModal()" style="border: none; background: none; cursor: pointer;">✕</button>
+            </div>
+            
+            <div class="element-type-selector">
+                <div class="element-type-item" data-type="text">
+                    <h3>Текст</h3>
+                    <p>Добавить текстовый материал</p>
+                </div>
+                <div class="element-type-item" data-type="video">
+                    <h3>Видео</h3>
+                    <p>Добавить видеоматериал</p>
+                </div>
+                <div class="element-type-item" data-type="test">
+                    <h3>Тест</h3>
+                    <p>Создать тестовое задание</p>
+                </div>
+                <div class="element-type-item" data-type="task">
+                    <h3>Задание</h3>
+                    <p>Создать практическое задание</p>
+                </div>
+            </div>
+
+            <form id="elementForm" style="display: none;">
+                <!-- Форма будет заполняться динамически в зависимости от выбранного типа -->
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно для редактирования элемента -->
+    <div id="editElementModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Редактировать элемент</h2>
+                <button onclick="closeEditElementModal()" style="border: none; background: none; cursor: pointer;">✕</button>
+            </div>
+            <form id="editElementForm">
+                <div class="form-group">
+                    <label>Название</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div id="editElementContent">
+                    <!-- Содержимое будет добавлено динамически -->
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="modal-button cancel" onclick="closeEditElementModal()">Отмена</button>
+                    <button type="submit" class="modal-button save">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно для редактирования курса -->
+    <div id="editCourseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Редактировать курс</h2>
+                <button onclick="closeEditCourseModal()" style="border: none; background: none; cursor: pointer;">✕</button>
+            </div>
+            <form id="editCourseForm">
+                <div class="form-group">
+                    <label>Название курса</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label>Описание курса</label>
+                    <textarea name="description" rows="6" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Изображение курса</label>
+                    <input type="file" name="image" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label>Статус</label>
+                    <select name="status" required>
+                        <option value="draft">Черновик</option>
+                        <option value="published">Опубликован</option>
+                    </select>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="modal-button cancel" onclick="closeEditCourseModal()">Отмена</button>
+                    <button type="submit" class="modal-button save">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="/static/js/course/userRole.js"></script>
+<script src="/static/js/course/courseManagement.js"></script>
+<script src="/static/js/course/elementManagement.js"></script>
+<script src="/static/js/course/modalHandling.js"></script>
+<script src="/static/js/course/test.js"></script>
+</html>
