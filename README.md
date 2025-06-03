@@ -40,7 +40,7 @@ OneBoard (1B)
     -	Персонализированный подход к обучению.
     -	Постоянная поддержка и помощь в решении вопросов.
 
-[Критерии успешности по OKR](/docs/okr.md)
+### [Критерии успешности по OKR](/docs/okr.md)
 
 ### Ответы на вопросы
 | Вопрос | Ответ |
@@ -73,7 +73,7 @@ OneBoard (1B)
 ![Edit course](/screenshots/edit_course.jpg)
 
 ## Запуск
-1. Настройка базы данных 
+### Настройка базы данных 
 - Установите СУБД PostgreSQL
 - Создайте базу данных и пользователя:
 
@@ -83,9 +83,22 @@ CREATE USER oneboard_user WITH PASSWORD 'your_password';
 GRANT ALL PRIVILEGES ON DATABASE oneboard_db TO oneboard_user;
 ```
 
-Затем в файле `oneboard_web/settings.py` настройте параметры подключения к базе данных:
+- Затем в файле `oneboard_web/settings.py` настройте параметры подключения к базе данных:
 
-2. Запуск приложения
+```
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "oneboard_db",
+        "USER": "oneboard_user",
+        "PASSWORD": "your_password",
+        "HOST": "localhost",
+        "PORT": "5432",
+    }
+}
+```
+
+### Запуск приложения
 - Примените миграции:
 
 ```
@@ -99,7 +112,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-3. Создание администратора 
+### Создание администратора 
 - Создайте тестового пользователя через API:
 
 ```
@@ -111,7 +124,7 @@ curl -X POST http://localhost:8000/api/users/register/ -H "Content-Type: applica
 UPDATE users_user SET role = 'admin' WHERE email = 'new.user@example.com';
 ```
 
-4. Доступ к приложению
+### Доступ к приложению
 
 После запуска приложение будет доступно по адресу:
 
