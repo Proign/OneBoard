@@ -73,9 +73,9 @@ OneBoard (1B)
 ![Edit course](/screenshots/edit_course.jpg)
 
 ## Запуск
-1. Настройка базы данных
-Установите СУБД PostgreSQL.
-Создайте базу данных и пользователя:
+1. Настройка базы данных 
+- Установите СУБД PostgreSQL
+- Создайте базу данных и пользователя:
 
 ```
 CREATE DATABASE oneboard_db;
@@ -86,32 +86,33 @@ GRANT ALL PRIVILEGES ON DATABASE oneboard_db TO oneboard_user;
 Затем в файле `oneboard_web/settings.py` настройте параметры подключения к базе данных:
 
 2. Запуск приложения
-Примените миграции:
+- Примените миграции:
 
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-Запустите сервер разработки:
+- Запустите сервер разработки:
 
 ```
 python manage.py runserver
 ```
 
-3. Создание администратора
-Создайте тестового пользователя через API:
+3. Создание администратора 
+- Создайте тестового пользователя через API:
 
 ```
 curl -X POST http://localhost:8000/api/users/register/ -H "Content-Type: application/json" -d "{\"email\":\"new.user@example.com\", \"password\":\"strong_password123\", \"password_confirm\":\"strong_password123\", \"first_name\":\"John\", \"last_name\":\"Doe\", \"patronymic\":\"Smith\", \"birthdate\":\"1990-01-01\"}"
 ```
-Измените роль пользователя на admin через базу данных:
+- Измените роль пользователя на admin через базу данных:
 
 ```
 UPDATE users_user SET role = 'admin' WHERE email = 'new.user@example.com';
 ```
 
 4. Доступ к приложению
+
 После запуска приложение будет доступно по адресу:
 
 ```
