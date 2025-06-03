@@ -40,6 +40,8 @@ OneBoard (1B)
     -	Персонализированный подход к обучению.
     -	Постоянная поддержка и помощь в решении вопросов.
 
+[Критерии успешности по OKR](/docs/okr.md)
+
 ### Ответы на вопросы
 | Вопрос | Ответ |
 | --- | --- |
@@ -51,6 +53,67 @@ OneBoard (1B)
 | Какие есть аналоги и конкуренты приложения? | [Сравнительный анализ конкурентов](https://docs.google.com/document/d/1qJnewY2i7RdS5-hhI7heu23VqBjdwfYfdsoRXzhOYgA/edit?tab=t.0). |
 | Что является нашей киллерфичей? | Умный помощник. |
 
-## Разработка
 ### Начало работы в Yandex Tracker
 ![Yandex Tracker](/screenshots/yandex_tracker_start.PNG)
+
+## Пользовательский интерфейс
+### Страница аутентификации
+![Authentication page](/screenshots/authentication_page.jpg)
+
+### Главная страница
+![Home page](/screenshots/home_page.jpg)
+
+### Страница курса
+![Course page](/screenshots/course_page.jpg)
+
+### Добавление элемента в курс
+![Add element](/screenshots/add_element.jpg)
+
+### Редактирование курса
+![Edit course](/screenshots/edit_course.jpg)
+
+## Запуск
+1. Настройка базы данных
+Установите СУБД PostgreSQL.
+Создайте базу данных и пользователя:
+
+```
+CREATE DATABASE oneboard_db;
+CREATE USER oneboard_user WITH PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE oneboard_db TO oneboard_user;
+```
+
+Затем в файле `oneboard_web/settings.py` настройте параметры подключения к базе данных:
+
+2. Запуск приложения
+Примените миграции:
+
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+Запустите сервер разработки:
+
+```
+python manage.py runserver
+```
+
+3. Создание администратора
+Создайте тестового пользователя через API:
+
+```
+curl -X POST http://localhost:8000/api/users/register/ -H "Content-Type: application/json" -d "{\"email\":\"new.user@example.com\", \"password\":\"strong_password123\", \"password_confirm\":\"strong_password123\", \"first_name\":\"John\", \"last_name\":\"Doe\", \"patronymic\":\"Smith\", \"birthdate\":\"1990-01-01\"}"
+```
+Измените роль пользователя на admin через базу данных:
+
+```
+UPDATE users_user SET role = 'admin' WHERE email = 'new.user@example.com';
+```
+
+4. Доступ к приложению
+После запуска приложение будет доступно по адресу:
+
+```
+http://127.0.0.1:8000/onboarding/login/
+```
