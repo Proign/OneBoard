@@ -57,6 +57,9 @@ OneBoard (1B)
 ![Yandex Tracker](/screenshots/yandex_tracker_start.PNG)
 
 ## Пользовательский интерфейс
+
+### [Figma](https://www.figma.com/design/XrYrvbdSlI5O2XwcjACdTk/Untitled?node-id=0-1&p=f)
+
 ### Страница аутентификации
 ![Authentication page](/screenshots/authentication_page.jpg)
 
